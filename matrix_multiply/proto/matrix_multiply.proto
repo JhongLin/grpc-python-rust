@@ -1,0 +1,19 @@
+syntax = "proto3";
+package matrix;
+
+service MatrixOperation {
+    rpc Multiply(MatrixRequest) returns (MatrixResponse);
+}
+
+message MatrixRequest {
+    repeated sint64 matrix1_values = 1;
+    uint32 matrix1_height = 2;
+    uint32 matrix1_width = 3;
+    repeated sint64 matrix2_values = 4;
+    uint32 matrix2_height = 5;
+    uint32 matrix2_width = 6;
+}
+
+message MatrixResponse {
+    repeated sint64 result_values = 1;
+}
